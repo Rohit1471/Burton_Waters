@@ -1,3 +1,14 @@
+<?php 
+
+    // Variable declaration for ACF
+    // Footer
+    $footer_icon_repeater= get_fields('footer_icon_repeater');
+    $footer_logo = get_field('footer_logo');
+    $footer_copyright_top = get_field('footer_copyright_top');
+    $footer_copyright_down = get_field('footer_copyright_down');
+
+?>
+
 
 <footer class="footer padtop40 padbot45">
         <div class="footer_outer">
@@ -5,17 +16,24 @@
                 <div class="footer_inner">
                     <div class="up flex align_center space_between relative">
                         <div class="social_icons">
-                            <ul class="flex gap10">
-                                <li><a href="#"><i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter" style="color: #ffffff;"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-youtube" style="color: #ffffff;"></i></a></li>
+                            <ul class="flex gap10 white">
+                                <?php 
+                                    $rows = get_field('footer_icon_repeater');
+                                    if( $rows ) {
+                                        foreach( $rows as $row ) {
+                                            $image = $row['social_icon'];
+                                            ?>                            
+                                            <li><a href="#"><?php echo $image ?></a></li>                
+                                        <?php                            
+                                        }
+                                    }
+                                ?>
                             </ul>
                         </div>
+
                         <div class="footer_logo absolute">
                             <a href="#">
-                                <img src="Assets/Images/header_logo.png" alt="#">
+                                <img src="<?php echo $footer_logo?>" alt="#">
                             </a>
                         </div>
                         <div class="sub_form">
@@ -38,10 +56,8 @@
                             </ul>
                         </div>
                         <div class="copyright text_center padtop50">
-                            <p class="white padbot25">@ Copyright 2020 Burton Waters Marina Ltd</p>
-                            <p>Burton Waters Boat sales is trading Name of Burton Waters Marina Limited who authorised
-                                and regulated by the financial
-                                conduct authority. Financial Services Register No. 739086.</p>
+                            <p class="white padbot25"><?php echo $footer_copyright_top ?></p>
+                            <p><?php echo $footer_copyright_down ?></p>
                         </div>
                     </div>
                 </div>

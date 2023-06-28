@@ -2,17 +2,20 @@
 namespace ElementorPro\Modules\CallToAction\Widgets;
 
 use Elementor\Controls_Manager;
+use Elementor\Control_Media;
 use Elementor\Core\Kits\Documents\Tabs\Global_Colors;
 use Elementor\Core\Kits\Documents\Tabs\Global_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Css_Filter;
 use Elementor\Group_Control_Image_Size;
+use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Text_Stroke;
 use Elementor\Icons_Manager;
 use Elementor\Utils;
 use ElementorPro\Base\Base_Widget;
+use ElementorPro\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -375,6 +378,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Height', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'vh', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 100,
@@ -385,7 +389,6 @@ class Call_To_Action extends Base_Widget {
 						'max' => 100,
 					],
 				],
-				'size_units' => [ 'px', 'vh' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-cta__content' => 'min-height: {{SIZE}}{{UNIT}}',
 				],
@@ -447,7 +450,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Padding', 'elementor-pro' ),
 				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', 'em', '%' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-cta__content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
@@ -472,6 +475,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Width', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -482,7 +486,6 @@ class Call_To_Action extends Base_Widget {
 						'max' => 100,
 					],
 				],
-				'size_units' => [ 'px', '%' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-cta__bg-wrapper' => 'min-width: {{SIZE}}{{UNIT}}',
 				],
@@ -498,6 +501,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Height', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'vh', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -508,8 +512,6 @@ class Call_To_Action extends Base_Widget {
 						'max' => 100,
 					],
 				],
-				'size_units' => [ 'px', 'vh' ],
-
 				'selectors' => [
 					'{{WRAPPER}} .elementor-cta__bg-wrapper' => 'min-height: {{SIZE}}{{UNIT}}',
 				],
@@ -540,6 +542,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Spacing', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -558,9 +561,9 @@ class Call_To_Action extends Base_Widget {
 		$this->add_control(
 			'graphic_image_width',
 			[
-				'label' => esc_html__( 'Size', 'elementor-pro' ) . ' (%)',
+				'label' => esc_html__( 'Width', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ '%' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'default' => [
 					'unit' => '%',
 				],
@@ -595,7 +598,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Border Radius', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -616,6 +619,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Spacing', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -673,6 +677,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Icon Size', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 6,
@@ -693,6 +698,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Icon Padding', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'padding: {{SIZE}}{{UNIT}};',
 				],
@@ -714,7 +720,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Border Width', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range' => [
 					'px' => [
 						'max' => 20,
@@ -738,7 +744,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Border Radius', 'elementor-pro' ),
 				'type' => Controls_Manager::DIMENSIONS,
-				'size_units' => [ 'px', '%', 'em' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
@@ -812,6 +818,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Spacing', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-cta__title:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
@@ -852,6 +859,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Spacing', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-cta__description:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
@@ -1043,6 +1051,14 @@ class Call_To_Action extends Base_Widget {
 			]
 		);
 
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name' => 'button_text_shadow',
+				'selector' => '{{WRAPPER}} .elementor-cta__button',
+			]
+		);
+
 		$this->start_controls_tabs( 'button_tabs' );
 
 		$this->start_controls_tab( 'button_normal',
@@ -1135,7 +1151,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Border Width', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
 				'range' => [
 					'px' => [
 						'max' => 20,
@@ -1156,7 +1172,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Border Radius', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em' ],
+				'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -1166,6 +1182,27 @@ class Call_To_Action extends Base_Widget {
 				'selectors' => [
 					'{{WRAPPER}} .elementor-cta__button' => 'border-radius: {{SIZE}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name' => 'button_box_shadow',
+				'selector' => '{{WRAPPER}} .elementor-cta__button',
+			]
+		);
+
+		$this->add_responsive_control(
+			'button_padding',
+			[
+				'label' => esc_html__( 'Padding', 'elementor-pro' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-cta__button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+				'separator' => 'before',
 			]
 		);
 
@@ -1215,6 +1252,7 @@ class Call_To_Action extends Base_Widget {
 			[
 				'label' => esc_html__( 'Distance', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
 				'range' => [
 					'px' => [
 						'min' => 0,
@@ -1552,9 +1590,24 @@ class Call_To_Action extends Base_Widget {
 
 		$this->add_render_attribute( 'wrapper', 'class', 'elementor-cta' );
 
-		$this->add_render_attribute( 'background_image', 'style', [
-			'background-image: url(' . $bg_image . ');',
-		] );
+		$background_selector = "background-image: url($bg_image);";
+
+		$is_lazyload_active = Plugin::elementor()->experiments->is_feature_active( 'e_lazyload' );
+		$is_edit_mode = Plugin::elementor()->editor->is_edit_mode();
+
+		if ( $print_bg && ! $is_edit_mode && $is_lazyload_active ) {
+			$background_selector = "background-image: var(--e-bg-lazyload-loaded); --e-bg-lazyload: url($bg_image);";
+			$this->add_render_attribute( 'wrapper', 'data-e-bg-lazyload', '.elementor-bg' );
+		}
+
+		$this->add_render_attribute(
+			'background_image',
+			[
+				'style' => $background_selector,
+				'role' => 'img',
+				'aria-label' => Control_Media::get_image_alt( $settings['bg_image'] ),
+			]
+		);
 
 		$this->add_render_attribute( 'title', 'class', [
 			'elementor-cta__title',
@@ -1783,12 +1836,19 @@ class Call_To_Action extends Base_Widget {
 				view.addRenderAttribute( 'graphic_element', 'class', animationClass );
 			}
 
-			view.addRenderAttribute( 'background_image', 'style', 'background-image: url(' + bgImageUrl + ');' );
+			view.addRenderAttribute(
+				'background_image',
+				{
+					'style': 'background-image: url(' + bgImageUrl + ');',
+					'role': 'img',
+					'aria-label': '',
+				}
+			);
+
 			view.addRenderAttribute( 'title', 'class', [ 'elementor-cta__title', 'elementor-cta__content-item', 'elementor-content-item' ] );
 			view.addRenderAttribute( 'description', 'class', [ 'elementor-cta__description', 'elementor-cta__content-item', 'elementor-content-item' ] );
 			view.addRenderAttribute( 'button', 'class', [ 'elementor-cta__button', 'elementor-button', btnSizeClass ] );
 			view.addRenderAttribute( 'graphic_element', 'class', [ 'elementor-cta__content-item', 'elementor-content-item' ] );
-
 
 			view.addInlineEditingAttributes( 'title' );
 			view.addInlineEditingAttributes( 'description' );

@@ -27,22 +27,12 @@ function enqueue_all_files() {
     // My CSS
     wp_enqueue_style( 'my_style', get_template_directory_uri() . '/style.css', array(), '1.0', false);
     
-}
+}   // Intializing the function
     add_action( 'wp_enqueue_scripts', 'enqueue_all_files' );
 
 
 
-// function themeslug_enqueue_style() {
-//     wp_enqueue_style( 'my_style', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css', false, '1.0', 'all' );
-// }
-
-// function themeslug_enqueue_script() {
-//     wp_enqueue_script( 'my_script',get_stylesheet_directory_uri() . '/assets/js/bw_script.js', false, '1.0', 'all' );
-// }
-
-// add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_style' );
-// add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
-
+    // ACF function to add header and footer under a different option
 
 if( function_exists('acf_add_options_page') ) {
     
@@ -64,7 +54,41 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Theme Footer Settings',
         'menu_title'    => 'Footer',
         'parent_slug'   => 'theme-general-settings',
-    ));
-    
+    ));    
 }
+
+// Function to identify a SVG as file type
+function acf_svg_file_type($file_types) {
+    $file_types['svg'] = 'image/svg+xml';
+    return $file_types;
+}
+add_filter('upload_mimes', 'acf_svg_file_type');
+
+
+// Registring for menu
+function mytheme_register_menus() {
+    register_nav_menus(array(
+        'primary-menu' => 'Primary Menu',
+        'secondary-menu' => 'Secondary Menu'
+    ));
+}
+add_action('after_setup_theme', 'mytheme_register_menus');
+
+// Okay, so now we have seen a basic example using ACF and Font Awesome. 
+// Let’s use ACF Pro to create a social media icon builder for our site’s footer. 
+// We will create a “Theme General Settings” page for that purpose. 
+// These settings should apply globally to all pages, so we will want to manage them in a single place.
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page([
+      'page_title' => 'Theme General Settings',
+      'menu_title' => 'Theme Settings',
+      'menu_slug' => 'theme-general-settings',
+      'capability' => 'edit_posts',
+      'redirect' => false
+    ]);
+  }
+
+
+
 ?>
