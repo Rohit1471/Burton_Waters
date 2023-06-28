@@ -1,9 +1,9 @@
-console.log("hello wordpresssgfsgfsgfg");
+
 $(document).ready(function(){
-    console.log("hello wordpress");
-    $(".nav_small_dropdown").click(function(){
-        $(".header .dropdown").toggle();
-        console.log("hello");
+    console.log("Script is running...");
+    $(".dropdown").hover(function(){
+      console.log("hello");
+      $(".header .dropdown ul").toggle();
     })
     $(".hamburger").click(function(){
         $(".header .header_inner").slideToggle(400);

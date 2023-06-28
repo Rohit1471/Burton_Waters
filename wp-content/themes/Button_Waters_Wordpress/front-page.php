@@ -41,8 +41,8 @@
         $marina_bottom_content= get_field('marina_bottom_content');
 
         // Facilities
-        // $facilities_bottom_left= get_field('facilities_bottom_left');
-        // $facilities_bottom_right= get_field('facilities_bottom_right'); 
+        $facilities_heading= get_field('facilities_heading');
+        $facilities_sub_heading= get_field('facilities_sub_heading'); 
 
         // Book section
         $book_heading_top_h2= get_field('book_heading_top_h2');
@@ -223,23 +223,13 @@
         </div>
     </section>
 
-    <section id="facilities" class="facilities padtop45 padbot100">
+    <section id="facilities" class="facilities padtop45 padbot100"> 
         <div class="facilities_outer">
             <div class="wrapper">
                 <div class="facilities_inner text_center">
                     <div class="top padbot50">
-                        <h2 class="padbot25">Ipswich Mooring Facilities</h2>
-                        <h6>
-                            The utter joy of Burton Waters Marina is the variety of services
-                            all in one place. There’s a slipway available for assisted or
-                            self-launch, a hoist able to handle cruisers up to 40ft, and
-                            narrow boats up to 60 ft. In addition, there’s full pump-out
-                            facilities, diesel, petrol, visitor berths and secure dry
-                            berthing ashore. All moorings (over 200) have individual access
-                            to free water and chargeable electricity, with access to
-                            toilets, washrooms, showers and laundry facilities. There is
-                            also 24-hour security with pontoon access via a security fob.
-                        </h6>
+                        <h2 class="padbot25"><?php echo $facilities_heading ?></h2>
+                        <h6><?php echo $facilities_sub_heading ?></h6>                            
                     </div>
                     <div class="bottom flex justify_center gap50">
                         <div class="left">
@@ -510,7 +500,3 @@
     <?php 
         get_footer();
     ?>
-
-
-
-

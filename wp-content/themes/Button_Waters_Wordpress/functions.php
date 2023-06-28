@@ -65,11 +65,12 @@ function acf_svg_file_type($file_types) {
 add_filter('upload_mimes', 'acf_svg_file_type');
 
 
-// Registring for menu
+// Registring for menu : This function hepls in showing menu option under appearance tab => appearance>menu
 function mytheme_register_menus() {
     register_nav_menus(array(
-        'primary-menu' => 'Primary Menu',
-        'secondary-menu' => 'Secondary Menu'
+        'primary-menu' => 'Primary Header Left',
+        'secondary-menu' => 'Primary Header Right',
+        'footer-menu' => 'Footer Menu'
     ));
 }
 add_action('after_setup_theme', 'mytheme_register_menus');
