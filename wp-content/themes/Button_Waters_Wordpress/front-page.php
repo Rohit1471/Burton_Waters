@@ -176,7 +176,7 @@
             <div class="wrapper">
                 <div class="inner_wrapper">
                     <div class="title text_center pad15 padbot65">
-                        <h2 class="padbot15">Ipswich Marina</h2>
+                        <h2 class="padbot15">Ipswich Marina<?php  ?></h2>
                         <h6>
                             Burton Waters Marina, Burton Lane End, Burton Waters, Lincoln
                             LN1 2WN
