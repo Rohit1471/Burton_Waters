@@ -10,6 +10,9 @@
 </head>
 
 <body>
+<?php
+    echo 'PHP version: ' . phpversion();
+?>
 <?php   
     $my_header_logo_name= get_field('my_header_logo_name', 'option');
     $magnify_glass = get_field('magnify_glass', 'option');
