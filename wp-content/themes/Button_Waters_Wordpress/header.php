@@ -23,7 +23,7 @@
         <div class="header_outer relative">
             <div class="wrapper">
                 <div class="header_logo">
-                    <a href="#"><img src="<?php  echo  $my_header_logo_name;?>" alt="Header_Logo" /></a>
+                    <a href="#"><img src="<?php  echo  $my_header_logo_name;?>" alt="Header_Logo"></a>
                 </div>
                 <div class="header_inner flex space_between align_center">
                     <!-- Left menu -->    

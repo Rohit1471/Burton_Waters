@@ -9,7 +9,7 @@ Description: Twenty Twenty-One is a blank canvas for your ideas and it makes the
 Requires at least: 5.3
 Tested up to: 6.2
 Requires PHP: 5.6
-Version: 1.8
+Version: 1.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: twentytwentyone
@@ -495,12 +495,39 @@ Twenty Twenty-One is distributed under the terms of the GNU GPL.
 .header .nav ul li{
 	padding-right:10px;
 }
-.header .right{
+/* .header .right{
 	justify-content: right;
 	align-items: center;
+} */
+.button .vce-button--style-outline-text span {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--primary);
+  background-color: var(--mywhite);
+  outline: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px !important;
+  font-weight: 800;
+  line-height: 1.4;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  /* transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); */
+  box-shadow: inset 0 0 0 0 var(--secondary);
+  transition: ease-out 0.4s;
+}  
+
+.button1 button:hover{
+  color:#FFFFFF; 
+  background-color:red;
+  /* transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); */    
+  /* box-shadow: inset 400px 0 0 0 #08547A;     */
 }
-.header .mybutton1{
-  
+.button1 button:hover i::before{
+  color: var(--mywhite);
+  transition: ease-out 0.4s;
 }
+
 
 
